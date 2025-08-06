@@ -7,6 +7,16 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
+        json = { 'jsonlint' },
+        yaml = { 'yamllint' },
+        toml = { 'taplo' }, 
+        sh = { 'shellcheck' },
+        bash = { 'shellcheck' },
+        python = { 'flake8' },
+        go = { 'golangci-lint' },
+        javascript = { 'eslint' },
+        typescript = { 'eslint' },
+        rust = { 'clippy' }, -- NOTE: this would run via cargo clippy
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

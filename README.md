@@ -2,13 +2,13 @@
 
 ## Introduction
 
-A starting point for Neovim that is:
+A significant modification of the original kickstart repo. Basically a full refactor
 
-* Small
-* Single-file
-* Completely Documented
+* Small - not anymore
+* Single-file - that kind of sucks. So not anymore.
+* Completely Documented - With proper structuring and relevant docs I feel like this is irrelevant.
 
-**NOT** a Neovim distribution, but instead a starting point for your configuration.
+**NOT** a Neovim distribution, but instead a starting point for your configuration. Actually my config now..thanks
 
 ## Installation
 
