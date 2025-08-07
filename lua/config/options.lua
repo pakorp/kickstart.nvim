@@ -36,8 +36,6 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-require('config')
-
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
