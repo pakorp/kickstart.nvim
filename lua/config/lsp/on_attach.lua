@@ -5,6 +5,7 @@ function M.setup()
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('core-lsp-attach', { clear = true }),
     callback = function(event)
+      local client = vim.lsp.get_client_by_id(event.data.client_id)
       local map = function(keys, func, desc, mode)
         vim.keymap.set(mode or 'n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
       end
