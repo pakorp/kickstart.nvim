@@ -8,7 +8,7 @@ function M.setup()
       local client = vim.lsp.get_client_by_id(event.data.client_id)
       local map = function(keys, func, desc, mode)
         vim.keymap.set(mode or 'n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-      end
+        end
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
         map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -48,8 +48,8 @@ function M.setup()
         if client and client.server_capabilities.inlayHintProvider then
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-        end, '[T]oggle Inlay [H]ints')
-      end
+          end, '[T]oggle Inlay [H]ints')
+        end
     end,
   })
 end

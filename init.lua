@@ -18,10 +18,11 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
   { import = 'config.core' },        -- Kickstart base plugins
-  { import = 'config.dap' },         -- Custom DAP modules (rust/js/etc)
+  { import = 'config.mason' },        -- Mason
+  { import = 'config.dap' },         -- Custom DAP modules (rust/js/etc):>
   { import = 'config.completion' },  -- Autocompletion config
   { import = 'config.ui' },          -- UI (icons, statusline, etc.)
-  { import = 'config.lsp' },         -- LSP core + per-server
+  { import = 'config.lsp.plugins' },         -- LSP core + per-server
   --{ import = 'config.linter' },      -- Linters
   { import = 'config.formatters' },  -- Formatters (via conform)
 }, {

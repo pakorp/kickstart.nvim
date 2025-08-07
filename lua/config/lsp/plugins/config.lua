@@ -34,14 +34,19 @@ return {
         marksman = {},
       }
 
-      -- Setup all LSPs
-      require('mason-lspconfig').setup_handlers {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      }
+      -- Setup all LSPs via mason-lspconfig (new v2+ API)
+      local ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
+      if ok then
+        mason_lspconfig.setup {
+          handlers = {
+            function(server_name)
+              local server = servers[server_name] or {}
+              server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+              require('lspconfig')[server_name].setup(server)
+            end,
+          },
+        }
+      end
 
       -- Diagnostic style
       vim.diagnostic.config {
