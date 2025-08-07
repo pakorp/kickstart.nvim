@@ -67,15 +67,3 @@ return {
     end,
   }
 }
-
-
-
-require('mason-lspconfig').setup({
-  ensure_installed = {}, -- handled by mason-tool-installer
-  handlers = {
-    function(server_name)
-      local opts = servers[server_name] or {}
-      require('lspconfig')[server_name].setup(opts)
-    end,
-  },
-})

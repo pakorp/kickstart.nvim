@@ -1,6 +1,18 @@
 return {
-  -- Already installed: mason.nvim
-
+  {
+    "williamboman/mason.nvim",
+    config = true, -- equivalent to: require("mason").setup()
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {}, -- intentionally left empty; handled elsewhere
+        automatic_installation = false,
+      })
+    end,
+  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = {
@@ -25,6 +37,7 @@ return {
           "goimports",
           "yamlfmt",      -- Kubernetes YAML
           "prettier",
+          "stylua",
 
           -- LSP servers (optional but good idea)
           "gopls",
